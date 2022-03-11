@@ -3,6 +3,7 @@ package org.campus02.shopping;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class DemoShoppingApp {
     public static void main(String[] args) {
@@ -25,6 +26,20 @@ public class DemoShoppingApp {
         
         Collections.sort(listCarts, new CartTotalItemsComparator());
         System.out.println("listCarts = " + listCarts);
+        
+        Collections.sort(listCarts, new Comparator<Cart>() {
+            @Override
+            public int compare(Cart o1, Cart o2) {
+                return Integer.compare(o2.getNumArticles(), o1.getNumArticles());
+            }
+        });
 
+        System.out.println("listCarts = " + listCarts);
+
+        Collections.sort(listCarts, (p1, p2) -> p1.getUsername().compareTo(p2.getUsername()));
+        System.out.println("listCarts = " + listCarts);
+
+        Collections.sort(listCarts, Comparator.comparing(Cart::getUsername));
+        System.out.println("listCarts = " + listCarts);
     }
 }
