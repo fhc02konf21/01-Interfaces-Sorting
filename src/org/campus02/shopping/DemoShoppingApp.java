@@ -20,6 +20,11 @@ public class DemoShoppingApp {
         Collections.sort(listCarts);
         System.out.println("listCarts = " + listCarts);
         
+        Collections.sort(listCarts, new CartUsernameComparator());
+        System.out.println("listCarts = " + listCarts);
+        
+        Collections.sort(listCarts, new CartTotalItemsComparator());
+        System.out.println("listCarts = " + listCarts);
 
     }
 }
