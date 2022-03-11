@@ -29,10 +29,10 @@ public class Employee implements Comparable<Employee> {
         // 0 => ident
         // +1 => größer
 
-        if (salary > o.salary)
-            return 1;
-        if (salary < o.salary)
-            return -1;
+        if (salary > o.salary) // größer
+            return +3;
+        if (salary < o.salary) // kleiner
+            return -4;
 
         return 0;
     }
